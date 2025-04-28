@@ -46,13 +46,21 @@
           <minimumSize width="50" height="50"/>
           <preferredSize width="200" height="70"/>
         </properties>
-        <border type="none"/>
+        <border type="none" title="Edges and Value"/>
         <children>
           <component id="f3739" class="javax.swing.JTable" binding="resultTable">
             <constraints/>
             <properties>
+              <autoResizeMode value="1"/>
+              <background color="-12301"/>
+              <cellSelectionEnabled value="false"/>
+              <columnSelectionAllowed value="false"/>
+              <foreground color="-13946566"/>
+              <gridColor color="-2747165"/>
+              <intercellSpacing width="3" height="4"/>
               <preferredScrollableViewportSize width="450" height="500"/>
               <preferredSize width="300" height="500"/>
+              <rowMargin value="4"/>
             </properties>
           </component>
         </children>
