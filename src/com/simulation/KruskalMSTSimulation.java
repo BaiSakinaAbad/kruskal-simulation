@@ -67,6 +67,7 @@ public class KruskalMSTSimulation extends JFrame {
         private List<Node> nodes;
         private List<Edge> edges;
         private List<Edge> mst;
+        private List<Edge> rejectedEdges; // Track rejected edges
         private int currentEdgeIndex;
 
         public GraphPanel() {
@@ -80,12 +81,14 @@ public class KruskalMSTSimulation extends JFrame {
             nodes = graph.nodes;
             edges = graph.edges;
             mst = new ArrayList<>();
+            rejectedEdges = new ArrayList<>(); // Reset rejected edges
             currentEdgeIndex = -1;
             repaint();
         }
 
         public void runSimulation() {
             mst.clear();
+            rejectedEdges.clear(); // Clear rejected edges at the start of simulation
             totalWeight = 0;
             currentEdgeIndex = -1;
             KruskalAlgorithm kruskal = new KruskalAlgorithm(nodes.size());
@@ -97,6 +100,8 @@ public class KruskalMSTSimulation extends JFrame {
                     mst.add(edge);
                     mstEdges.add(edge);
                     totalWeight += edge.weight;
+                } else {
+                    rejectedEdges.add(edge); // Add edge to rejected list if not in MST
                 }
                 repaint();
                 try {
@@ -127,7 +132,7 @@ public class KruskalMSTSimulation extends JFrame {
                 data[i][1] = e.dest;
                 data[i][2] = e.weight;
             }
-            data[mstEdges.size()][0] = "Total";
+            data[mstEdges.size()][0] = "MST";
             data[mstEdges.size()][1] = "";
             data[mstEdges.size()][2] = totalWeight;
 
@@ -147,13 +152,13 @@ public class KruskalMSTSimulation extends JFrame {
                 Node dest = nodes.get(e.dest);
                 if (mst.contains(e)) {
                     g2d.setColor(Color.GREEN);
-                    g2d.setStroke(new BasicStroke(10)); //accepted
-                } else if (i == currentEdgeIndex) {
+                    g2d.setStroke(new BasicStroke(10)); // Accepted
+                } else if (i == currentEdgeIndex || rejectedEdges.contains(e)) {
                     g2d.setColor(Color.RED);
-                    g2d.setStroke(new BasicStroke(5)); // rejected
+                    g2d.setStroke(new BasicStroke(7)); // Rejected (current or previously rejected)
                 } else {
                     g2d.setColor(Color.BLACK);
-                    g2d.setStroke(new BasicStroke(1)); // initial
+                    g2d.setStroke(new BasicStroke(2)); // Unvisited
                 }
                 g2d.drawLine(src.x, src.y, dest.x, dest.y);
 
@@ -171,6 +176,44 @@ public class KruskalMSTSimulation extends JFrame {
                 g2d.setColor(Color.WHITE);
                 g2d.drawString(String.valueOf(node.id), node.x - 5, node.y + 5);
             }
+            drawLegend(g2d);
+        }
+
+        private void drawLegend(Graphics2D g2d) {
+            int x = 5;
+            int y = 420;
+            int lineLength = 30;
+            int lineSpacing = 15;
+
+            g2d.setFont(new Font("Monospaced", Font.PLAIN, 12));
+            g2d.setColor(Color.BLACK);
+
+            // Legend title
+            g2d.drawString("LEGEND:", x, y);
+            y += lineSpacing;
+
+            // Visited and Accepted (Green)
+            g2d.setColor(Color.BLACK);
+            g2d.drawString("VISITED AND ACCEPTED: ", x, y);
+            g2d.setColor(Color.GREEN);
+            g2d.setStroke(new BasicStroke(5));
+            g2d.drawLine(x + 155, y - 5, x + 145 + lineLength, y - 5);
+            y += lineSpacing;
+
+            // Visited and Rejected (Red)
+            g2d.setColor(Color.BLACK);
+            g2d.drawString("VISITED AND REJECTED: ", x, y);
+            g2d.setColor(Color.RED);
+            g2d.setStroke(new BasicStroke(5));
+            g2d.drawLine(x + 155, y - 5, x + 145 + lineLength, y - 5);
+            y += lineSpacing;
+
+            // Unvisited (Black)
+            g2d.setColor(Color.BLACK);
+            g2d.drawString("UNVISITED: ", x, y);
+            g2d.setColor(Color.BLACK);
+            g2d.setStroke(new BasicStroke(5));
+            g2d.drawLine(x + 155, y - 5, x + 145 + lineLength, y - 5);
         }
     }
 
