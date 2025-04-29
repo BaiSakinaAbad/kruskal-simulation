@@ -7,7 +7,7 @@ This project, `kruskal-simulation`, is a school activity developed for a Data St
 - **Name**: Bai Sakina B. Abad  
 - **Program**: Computer Science  
 - **University**: New Era University  
-- **Context**: This project was created as part of a DSA course to demonstrate the application of Kruskal's algorithm in graph theory.
+- **Context**: This project was created as part of a DSA course to demonstrate the application of Kruskal's algorithm of Greedy Techniques.
 
 ## Technologies Used
 - **IDE**: IntelliJ IDEA  
@@ -20,7 +20,6 @@ This project, `kruskal-simulation`, is a school activity developed for a Data St
 - Generate random graphs with varying complexity (7 different sample graphs).
 - Interactive controls to start, pause, and new graph.
 - Display the MST edges and total weight in a table.
-- Customizable UI with color-coded elements (nodes, edges, and table headers).
 
 ## UI Preview
 Below is a preview of the application's user interface. 
@@ -28,11 +27,6 @@ Below is a preview of the application's user interface.
 ![UI Sreenshot](src/resources/ui_preview.png)
 
 *Caption*: The GUI shows the graph on the left, the MST table on the right, and control buttons (Start, Pause, New Graph) at the bottom.
-
-### How to Add a UI Preview
-1. Take a screenshot of the running application.
-2. Save the screenshot as `ui-preview.png` in a `docs/` folder in the repository.
-3. Update the image path in the Markdown above to point to the correct location (`docs/ui-preview.png`).
 
 ## How to Run the Project
 1. **Clone the Repository**:
@@ -44,7 +38,7 @@ Below is a preview of the application's user interface.
    - Select `File > Open` and navigate to the cloned repository folder.
    - Open the project.
 3. **Compile and Run**:
-   - Ensure you have a JDK installed (Java 8 or higher recommended).
+   - Ensure you have a JDK installed (Java 22 or higher recommended).
    - Compile the project:
      ```bash
      javac -d out src/com/simulation/*.java
@@ -53,6 +47,7 @@ Below is a preview of the application's user interface.
      ```bash
      java -cp out com.simulation.KruskalMSTSimulation
      ```
+    - ALTERNATIVE: open the src/com.simulation/KruskalMSTSimulation class and run it.
 4. **Interact with the Simulation**:
    - Click "Start" to begin the MST simulation.
    - Click "Pause" to pause the simulation.
