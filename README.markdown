@@ -25,7 +25,7 @@ This project, `kruskal-simulation`, is a school activity developed for a Data St
 ## UI Preview
 Below is a preview of the application's user interface. 
 
-![UI Preview](src/resources/ui_preview.png)
+![UI Sreenshot](src/resources/ui_preview.png)
 
 *Caption*: The GUI shows the graph on the left, the MST table on the right, and control buttons (Start, Pause, New Graph) at the bottom.
 
