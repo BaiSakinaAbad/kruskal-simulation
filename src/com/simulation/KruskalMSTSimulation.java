@@ -15,12 +15,14 @@ public class KruskalMSTSimulation extends JFrame {
 
     public KruskalMSTSimulation() {
         setTitle("Kruskal's MST Simulation");
-        setSize(800, 600);
+        setSize(850, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Initialize GUI form
         guiForm = new KruskalGUIFormNew();
         setContentPane(guiForm.getMainPanel());
+        guiForm.getResultTable().getTableHeader().setBackground(new Color(255, 193, 231));
+        guiForm.getResultTable().getTableHeader().setOpaque(true);
 
         // Initialize graph panel
         graphPanel = new GraphPanel();
@@ -52,7 +54,6 @@ public class KruskalMSTSimulation extends JFrame {
             guiForm.getStartButton().setEnabled(true);
             guiForm.getPauseButton().setEnabled(false);
             guiForm.getNewGraphButton().setEnabled(true);
-            // Remove redundant table initialization since it's already done in KruskalGUIForm
             guiForm.getResultTable().setModel(new javax.swing.table.DefaultTableModel(
                     new Object[][]{}, new String[]{"Source", "Destination", "Weight"}
             ));
@@ -69,6 +70,8 @@ public class KruskalMSTSimulation extends JFrame {
         private int currentEdgeIndex;
 
         public GraphPanel() {
+            setBackground(new Color(246, 223, 235));
+            setOpaque(true);
             resetGraph();
         }
 
@@ -144,15 +147,16 @@ public class KruskalMSTSimulation extends JFrame {
                 Node dest = nodes.get(e.dest);
                 if (mst.contains(e)) {
                     g2d.setColor(Color.GREEN);
-                    g2d.setStroke(new BasicStroke(3));
+                    g2d.setStroke(new BasicStroke(10)); //accepted
                 } else if (i == currentEdgeIndex) {
                     g2d.setColor(Color.RED);
-                    g2d.setStroke(new BasicStroke(2));
+                    g2d.setStroke(new BasicStroke(5)); // rejected
                 } else {
                     g2d.setColor(Color.BLACK);
-                    g2d.setStroke(new BasicStroke(1));
+                    g2d.setStroke(new BasicStroke(1)); // initial
                 }
                 g2d.drawLine(src.x, src.y, dest.x, dest.y);
+
                 // Draw weight
                 int midX = (src.x + dest.x) / 2;
                 int midY = (src.y + dest.y) / 2;
@@ -162,7 +166,7 @@ public class KruskalMSTSimulation extends JFrame {
 
             // Draw nodes
             for (Node node : nodes) {
-                g2d.setColor(Color.BLUE);
+                g2d.setColor(new Color(171, 138, 158));
                 g2d.fillOval(node.x - 15, node.y - 15, 30, 30);
                 g2d.setColor(Color.WHITE);
                 g2d.drawString(String.valueOf(node.id), node.x - 5, node.y + 5);

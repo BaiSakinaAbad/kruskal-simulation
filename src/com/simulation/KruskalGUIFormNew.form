@@ -1,41 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.simulation.KruskalGUIFormNew">
-  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="3" vgap="3">
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
     <properties>
+      <background color="-1787180"/>
+      <foreground color="-5865833"/>
       <preferredSize width="600" height="450"/>
     </properties>
-    <border type="none"/>
+    <border type="line">
+      <color color="-3566621"/>
+    </border>
     <children>
-      <grid id="c981b" binding="controlPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="c981b" binding="controlPanel" layout-manager="FlowLayout" hgap="10" vgap="7" flow-align="1">
         <constraints border-constraint="South"/>
         <properties>
-          <background color="-17968"/>
+          <autoscrolls value="true"/>
+          <background color="-1787180"/>
           <foreground color="-1"/>
           <maximumSize width="50" height="50"/>
           <minimumSize width="50" height="50"/>
+          <opaque value="true"/>
           <preferredSize width="200" height="50"/>
         </properties>
-        <border type="none"/>
+        <border type="line">
+          <title-color color="-2104859"/>
+          <color color="-10137768"/>
+        </border>
         <children>
           <component id="a9e80" class="javax.swing.JButton" binding="startButton">
             <constraints/>
             <properties>
-              <text value="START"/>
+              <background color="-2313267"/>
+              <borderPainted value="false"/>
+              <foreground color="-14090013"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="resources/startBtn.png"/>
+              <iconTextGap value="5"/>
+              <label value=""/>
+              <preferredSize width="110" height="35"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="bb0" class="javax.swing.JButton" binding="pauseButton">
             <constraints/>
             <properties>
-              <text value="PAUSE"/>
+              <background color="-2313267"/>
+              <borderPainted value="false"/>
+              <focusable value="true"/>
+              <foreground color="-1900498"/>
+              <icon value="resources/pause.png"/>
+              <iconTextGap value="0"/>
+              <preferredSize width="110" height="35"/>
+              <requestFocusEnabled value="true"/>
+              <text value=""/>
+              <visible value="true"/>
             </properties>
+            <clientProperties>
+              <hideActionText class="java.lang.Boolean" value="false"/>
+            </clientProperties>
           </component>
           <component id="ad98c" class="javax.swing.JButton" binding="newGraphButton">
             <constraints/>
             <properties>
-              <text value="NEW GRAPH"/>
+              <background color="-2313267"/>
+              <borderPainted value="false"/>
+              <foreground color="-14090013"/>
+              <hideActionText value="false"/>
+              <icon value="resources/newGraphtBtn.png"/>
+              <iconTextGap value="0"/>
+              <preferredSize width="110" height="35"/>
+              <text value=""/>
             </properties>
           </component>
         </children>
@@ -43,24 +79,35 @@
       <scrollpane id="552a6" binding="tableScrollPane">
         <constraints border-constraint="East"/>
         <properties>
+          <background color="-1787180"/>
           <minimumSize width="50" height="50"/>
-          <preferredSize width="200" height="70"/>
+          <opaque value="true"/>
+          <preferredSize width="220" height="70"/>
         </properties>
-        <border type="none" title="Edges and Value"/>
+        <border type="none" title="Edges and Value" title-justification="2" title-position="2">
+          <font name="Poor Richard" size="14" style="0"/>
+          <title-color color="-15461356"/>
+          <color color="-10403511"/>
+        </border>
         <children>
           <component id="f3739" class="javax.swing.JTable" binding="resultTable">
             <constraints/>
             <properties>
               <autoResizeMode value="1"/>
-              <background color="-12301"/>
+              <background color="-598037"/>
               <cellSelectionEnabled value="false"/>
               <columnSelectionAllowed value="false"/>
+              <font name="Consolas"/>
               <foreground color="-13946566"/>
-              <gridColor color="-2747165"/>
+              <gridColor color="-10403511"/>
               <intercellSpacing width="3" height="4"/>
+              <maximumSize width="100" height="70"/>
               <preferredScrollableViewportSize width="450" height="500"/>
-              <preferredSize width="300" height="500"/>
+              <preferredSize width="340" height="900"/>
+              <rowHeight value="35"/>
               <rowMargin value="4"/>
+              <selectionForeground color="-598037"/>
+              <visible value="true"/>
             </properties>
           </component>
         </children>
@@ -68,9 +115,16 @@
       <grid id="14ee3" binding="graphPanelContainer" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties>
+          <background color="-1787180"/>
+          <foreground color="-14090013"/>
+          <opaque value="true"/>
           <preferredSize width="400" height="400"/>
         </properties>
-        <border type="none"/>
+        <border type="line" title="Kruskal Visualization" title-justification="2" title-position="2">
+          <font name="Poor Richard" size="20" style="1"/>
+          <title-color color="-15461356"/>
+          <color color="-12908735"/>
+        </border>
         <children/>
       </grid>
     </children>
